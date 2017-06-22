@@ -1,10 +1,10 @@
 import Expo from 'expo';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import ListRow from './scr/components/listrow';
-import NewEvent from './scr/screens/newevent';
-import HomeScreen from './scr/screens/home';
-import DetailScreen from './scr/screens/detail';
+import ListRow from './src/components/listrow.js';
+import NewEvent from './src/screens/newevent';
+import HomeScreen from './src/screens/home';
+import DetailScreen from './src/screens/detail';
 import { StackNavigator } from 'react-navigation';
 
 
