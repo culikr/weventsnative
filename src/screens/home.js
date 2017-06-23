@@ -20,9 +20,6 @@ class HomeScreen extends React.Component {
 
   });
 
-
-  
-
   render() {
     const { navigate } = this.props.navigation;
     
@@ -66,9 +63,6 @@ class HomeScreen extends React.Component {
     )
   }
 }
-
-
-
 
 const styles = StyleSheet.create({
     container: {
