@@ -20,8 +20,18 @@ class NewEvent extends React.Component {
     };
   }
 
-  componentWillMount() {
-    this.load()
+  componentDidMount() {
+    //this.load()
+
+    this.load().then(res => {
+      //console.log(res)
+      this.setState({
+        evento: res.evento,
+        local: res.local,
+        dataini: res.dataini,
+        datafim: res.datafim,
+      })
+    } )
   }
 
   static navigationOptions = ({ navigation }) => ({
@@ -42,15 +52,18 @@ class NewEvent extends React.Component {
 
       objeto = JSON.parse(global.gValue)
 
-      this.state = objeto
+      //this.setState(objeto)
 
-      alert(this.state.evento
-        + ' / ' + this.state.local
-        + ' / ' +this.state.dataini
-        + ' / ' +this.state.datafim)
+      //this.state = objeto
+
+      // alert(this.state.evento
+      //   + ' / ' + this.state.local
+      //   + ' / ' + this.state.dataini
+      //   + ' / ' + this.state.datafim)
+      return objeto
 
     }
-    _localStorage()
+    return _localStorage()
   }
 
   save = () => {
