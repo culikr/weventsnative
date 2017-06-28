@@ -51,15 +51,18 @@ class HomeScreen extends React.Component {
           //caso precise deletar algo por enquanto
           //AsyncStorage.removeItem("__uniqueId")
 
+
           for(let j = 0; j < stores.length; j++){
             //alert(store[j][0] + " -> "+ store[j][1])
 
-            var form = [store[j][1]]
+            var teste = [store[j][1]]
 
-            //this.state.data = form
-
-            alert(form)
+            alert(teste)
           }
+
+          this.setState(
+            {data: teste}
+          )
 
           console.log("-------")  
           console.log("RESULT:" + result)
@@ -73,26 +76,26 @@ class HomeScreen extends React.Component {
           console.log("VALUE:" + value)
           console.log("-------")  
 
-          this.loaditem(key).then(res => {
-            //console.log(res)
-          //alert(key) 
+          // this.loaditem(key).then(res => {
+          //   //console.log(res)
+          // //alert(key) 
 
-          //TO DO: tem q fazer o state receber esse array
-          // e nao como abaixo
+          // //TO DO: tem q fazer o state receber esse array
+          // // e nao como abaixo
 
-           this.setState({
-            key: res.key,
-            event: res.evento,
-            dataini: res.dataini,
-            datafim: res.datafim,
-            max: '50',
-            min: '10',
-            umidade: '12'
-          })
+          //  this.setState({
+          //   key: res.key,
+          //   event: res.evento,
+          //   dataini: res.dataini,
+          //   datafim: res.datafim,
+          //   max: '50',
+          //   min: '10',
+          //   umidade: '12'
+          // })
 
 
-          //console.log("THIS.STATE:" + this.state)
-          })
+          // //console.log("THIS.STATE:" + this.state)
+          // })
         });
       });
     });
@@ -142,11 +145,9 @@ class HomeScreen extends React.Component {
             //]
             //}
 
-            data={[this.state]}
+            //data={[this.state]}
 
-            //data={this.state.data}
-
-            
+            data={this.state.data}
             
 
             renderItem={({item, separators}) => (
@@ -162,7 +163,7 @@ class HomeScreen extends React.Component {
                 //onHideUnderlay={separators.unhighlight}
                 >
             <View style={{backgroundColor: 'white'}}>
-                <ListRow eventname={item.event} eventperiod={item.dataini + " até " + item.datafim} />
+                <ListRow eventname={item} eventperiod={item.dataini + " até " + item.datafim} />
             </View>
             </TouchableHighlight>
             )}
