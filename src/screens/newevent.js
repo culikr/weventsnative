@@ -1,4 +1,5 @@
 import React from 'react'
+//import uuid from 'react-native-uuid';
 
 import { 
   StyleSheet, 
@@ -8,7 +9,10 @@ import {
   TextInput,
   AsyncStorage } from 'react-native';
 
+const uniqueId = require('react-native-unique-id')
+
 class NewEvent extends React.Component {
+  
 
   constructor(props) {
     super(props);
@@ -23,15 +27,15 @@ class NewEvent extends React.Component {
   componentDidMount() {
     //this.load()
 
-    this.load().then(res => {
-      //console.log(res)
-      this.setState({
-        evento: res.evento,
-        local: res.local,
-        dataini: res.dataini,
-        datafim: res.datafim,
-      })
-    } )
+    // this.load().then(res => {
+    //   //console.log(res)
+    //   this.setState({
+    //     evento: res.evento,
+    //     local: res.local,
+    //     dataini: res.dataini,
+    //     datafim: res.datafim,
+    //   })
+    // } )
   }
 
   static navigationOptions = ({ navigation }) => ({
@@ -40,33 +44,34 @@ class NewEvent extends React.Component {
   });
   
 
-  load = () => {
-    async function _localStorage() {
-      const v = await AsyncStorage.getItem("UID123");
+  // load = () => {
+  //   async function _localStorage() {
+  //     const v = await AsyncStorage.getItem("UID123");
 
-      if (v) {
-        global.gValue = v;
-      } else {
-        global.gValue = 'hello world!';
-      }
+  //     if (v) {
+  //       global.gValue = v;
+  //     } else {
+  //       global.gValue = 'hello world!';
+  //     }
 
-      objeto = JSON.parse(global.gValue)
+  //     objeto = JSON.parse(global.gValue)
 
-      //this.setState(objeto)
+  //     //this.setState(objeto)
 
-      //this.state = objeto
+  //     //this.state = objeto
 
-      // alert(this.state.evento
-      //   + ' / ' + this.state.local
-      //   + ' / ' + this.state.dataini
-      //   + ' / ' + this.state.datafim)
-      return objeto
+  //     // alert(this.state.evento
+  //     //   + ' / ' + this.state.local
+  //     //   + ' / ' + this.state.dataini
+  //     //   + ' / ' + this.state.datafim)
+  //     return objeto
 
-    }
-    return _localStorage()
-  }
+  //   }
+  //   return _localStorage()
+  // }
 
   save = () => {
+    console.log("save()");
 
     let UID123_object = {
       evento: this.state.evento,
@@ -76,9 +81,22 @@ class NewEvent extends React.Component {
     };
 
     try {
-      AsyncStorage.setItem('UID123', JSON.stringify(UID123_object), () => {
-        alert('Salvo')
-      });
+
+        uniqueId()
+        .then(id => 
+          AsyncStorage.setItem(id, JSON.stringify(UID123_object), () => {
+            alert('Salvo')
+          })
+        )
+        .catch(error => console.error(error))
+
+        // luuid = "123"
+
+        // AsyncStorage.setItem(luuid, JSON.stringify(UID123_object), () => {
+        //   alert('Salvo')
+        // });
+      
+      
     } catch (error) {
       // Error saving data
       alert(error)

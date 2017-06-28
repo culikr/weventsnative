@@ -4,10 +4,9 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 
 import {SimpleLineIcons} from '@expo/vector-icons'
 
-
 const ListRow = ({eventname, eventperiod, icon}) => {
 
-    const {container, row, column, text, button, image, line} = styles
+    const {container, row, column, text, button, image, line, period} = styles
 
     return (
         <View style={container}>
@@ -17,7 +16,7 @@ const ListRow = ({eventname, eventperiod, icon}) => {
                 <View style={column}>
                     <Text style={text}> {eventname} </Text>
 
-                    <Text style={text}> {eventperiod} </Text>
+                    <Text style={period}> {eventperiod} </Text>
                 </View>
 
                 <View style={image}>
@@ -60,6 +59,11 @@ const styles = StyleSheet.create({
     text: {
         color: 'white',
         fontSize: 20,
+        padding: 5,
+    },
+    period: {
+        color: 'white',
+        fontSize: 15,
         padding: 5,
     },
     line: {
