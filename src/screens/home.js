@@ -14,6 +14,8 @@ import ListRow from '../components/listrow';
 import { StackNavigator } from 'react-navigation';
 
 class HomeScreen extends React.Component {
+
+  
     
   static navigationOptions = ({ navigation }) => ({
       title: 'WEvents',
@@ -31,7 +33,10 @@ class HomeScreen extends React.Component {
       // max: '', 
       // min: '', 
       // umidade: ''
-      data: []
+      data: [
+        {"evento":"teste","local":"nao sei","dataini":"01/10/2019","datafim":"01/10/2019"},
+        //{"evento":"teste2","local":"Jasei","dataini":"01/10/2019","datafim":"01/10/2020"},
+      ]
     };
   }
 
@@ -40,7 +45,13 @@ class HomeScreen extends React.Component {
 
     //obter todas chaves
     AsyncStorage.getAllKeys((err, keys) => {
+
+      //alert(keys)
+
       AsyncStorage.multiGet(keys, (err, stores) => {
+
+        //alert(stores)
+
         stores.map((result, i, store) => {
           // get at each store's key/value so you can work with it
           let key = store[i][0];  //SE TROCA AQUI MANUAL ELE CARREGA AS DIFERENTES KEYS
@@ -49,20 +60,32 @@ class HomeScreen extends React.Component {
           console.log("stores.length : " + stores.length)  
 
           //caso precise deletar algo por enquanto
-          //AsyncStorage.removeItem("__uniqueId")
+          //AsyncStorage.removeItem(key)
+          objeto = JSON.parse([value])
 
+          //alert(key + "-"+ value)
 
-          for(let j = 0; j < stores.length; j++){
-            //alert(store[j][0] + " -> "+ store[j][1])
-
-            var teste = [store[j][1]]
-
-            alert(teste)
-          }
+          //alert(JSON.stringify(objeto))
 
           this.setState(
-            {data: teste}
+            {data: [...this.state.data, ...[objeto]]}
           )
+
+          // for(let j = 0; j < stores.length; j++){
+          //   //alert(store[j][0] + " -> "+ store[j][1])
+
+          //   var teste = [store[j][1]]
+
+          //   objeto = JSON.parse(teste)
+
+          //   //alert(JSON.stringify(objeto))
+
+          //   this.setState(
+          //     {data: [...this.state.data, ...teste]}
+          //   )
+          // }
+
+          //alert(i + this.state.data)
 
           console.log("-------")  
           console.log("RESULT:" + result)
@@ -125,6 +148,8 @@ class HomeScreen extends React.Component {
     return _localStorage()
   }
 
+  
+
   render() {
     const { navigate } = this.props.navigation;
 
@@ -138,14 +163,13 @@ class HomeScreen extends React.Component {
 
             style={styles.flat}
 
+
             //data={
             //[
-            //  {key: '1', event: 'Show', date:'10/10/2010', max: '10', min: '5', umidade: '3'}, 
-            //  {key: '2', event:'Férias', date:'23/10/2015', max: '33', min: '22', umidade: '11'}
+            //  {key: '1', evento: 'Show', dataini:'10/10/2010', max: '10', min: '5', umidade: '3'}, 
+            //  {key: '2', evento:'Férias', dataini:'23/10/2015', max: '33', min: '22', umidade: '11'}
             //]
             //}
-
-            //data={[this.state]}
 
             data={this.state.data}
             
@@ -153,7 +177,7 @@ class HomeScreen extends React.Component {
             renderItem={({item, separators}) => (
             <TouchableHighlight
                 onPress={() => navigate('Detail', {
-                    eventname: item.event, 
+                    eventname: item.evento, 
                     dataini: item.dataini,
                     max: item.max,
                     min: item.min,
@@ -163,7 +187,7 @@ class HomeScreen extends React.Component {
                 //onHideUnderlay={separators.unhighlight}
                 >
             <View style={{backgroundColor: 'white'}}>
-                <ListRow eventname={item} eventperiod={item.dataini + " até " + item.datafim} />
+                <ListRow eventname={item.evento} eventperiod={item.dataini + " até " + item.dataini} />
             </View>
             </TouchableHighlight>
             )}

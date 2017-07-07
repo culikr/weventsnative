@@ -82,19 +82,19 @@ class NewEvent extends React.Component {
 
     try {
 
-        uniqueId()
-        .then(id => 
-          AsyncStorage.setItem(id, JSON.stringify(UID123_object), () => {
-            alert('Salvo')
-          })
-        )
-        .catch(error => console.error(error))
+        // uniqueId()
+        // .then(id => 
+        //   AsyncStorage.setItem(id, JSON.stringify(UID123_object), () => {
+        //     alert('Salvo')
+        //   })
+        // )
+        // .catch(error => console.error(error))
 
-        // luuid = "123"
+        luuid = this.state.evento
 
-        // AsyncStorage.setItem(luuid, JSON.stringify(UID123_object), () => {
-        //   alert('Salvo')
-        // });
+        AsyncStorage.setItem(luuid, JSON.stringify(UID123_object), () => {
+          alert('Salvo')
+        });
       
       
     } catch (error) {
