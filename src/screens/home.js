@@ -14,8 +14,6 @@ import ListRow from '../components/listrow';
 import { StackNavigator } from 'react-navigation';
 
 class HomeScreen extends React.Component {
-
-  
     
   static navigationOptions = ({ navigation }) => ({
       title: 'WEvents',
@@ -34,7 +32,7 @@ class HomeScreen extends React.Component {
       // min: '', 
       // umidade: ''
       data: [
-        {"evento":"teste","local":"nao sei","dataini":"01/10/2019","datafim":"01/10/2019"},
+        //{"evento":"teste","local":"nao sei","dataini":"01/10/2019","datafim":"01/10/2019"},
         //{"evento":"teste2","local":"Jasei","dataini":"01/10/2019","datafim":"01/10/2020"},
       ]
     };
@@ -62,8 +60,6 @@ class HomeScreen extends React.Component {
           //caso precise deletar algo por enquanto
           //AsyncStorage.removeItem(key)
           objeto = JSON.parse([value])
-
-          //alert(key + "-"+ value)
 
           //alert(JSON.stringify(objeto))
 

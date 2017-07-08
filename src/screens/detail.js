@@ -1,14 +1,22 @@
 
 import React from 'react'
 
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { 
+  StyleSheet, 
+  Text, 
+  View, 
+  TextInput, 
+  Button,
+  AsyncStorage } from 'react-native';
 import {SimpleLineIcons} from '@expo/vector-icons';
 
 
 class DetailScreen extends React.Component {
 
+  
   static navigationOptions = ({ navigation }) => ({
     //title: `Evento: ${navigation.state.params.eventname}`,
+    headerRight: <Button title="Delete" onPress={() => AsyncStorage.removeItem(navigation.state.params.eventname)}/>
   });
 
   render() {
