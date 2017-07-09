@@ -12,6 +12,8 @@ import {
 
 import ListRow from '../components/listrow';
 import { StackNavigator } from 'react-navigation';
+import * from '../action/request'
+  
 
 class HomeScreen extends React.Component {
     
@@ -27,7 +29,10 @@ class HomeScreen extends React.Component {
       data: [
         //{"evento":"teste","local":"nao sei","dataini":"01/10/2019","datafim":"01/10/2019"},
         //{"evento":"teste2","local":"Jasei","dataini":"01/10/2019","datafim":"01/10/2020"},
-      ]
+      ],
+       jsonDataCity: '',
+       jsonDataTemp:'',
+    
     };
   }
 
@@ -119,6 +124,24 @@ class HomeScreen extends React.Component {
   }
 
   
+  chamaDetable( item ) {
+  var jsonDataCity = getCityId(item.local);
+                     
+  var jsonDataTemp = getCityInfo(jsonDataCity);
+
+  navigate('Detail', {
+                    //aqui tem q pegar da API 
+                    // a max, min, umidade e imagem
+                    eventname: item.evento, 
+                    date: item.date,
+                    max: jsonDataCity.DailyForecasts[0].Temperature.Maximum.Value, //item.max,
+                    min: jsonDataCity.DailyForecasts[0].Temperature.Minimum.Value;, //item.min,                   
+                    image: jsonDataCity.DailyForecasts[0].Day.Icon;,
+                    umidade: 2,// item.umidade
+                    });
+  	  
+	}
+  
 
   render() {
     const { navigate } = this.props.navigation;
@@ -146,21 +169,23 @@ class HomeScreen extends React.Component {
 
             renderItem={({item, separators}) => (
             <TouchableHighlight
-                onPress={() => navigate('Detail', {
-
-                    //aqui tem q pegar da API 
-                    // a max, min, umidade e imagem
-
-                    eventname: item.evento, 
-                    date: item.date,
-                    max: 10, //item.max,
-                    min: 5, //item.min,
-                    //image: '../images/02.png', //item.image,
-                    image: 1,
-                    umidade: 2,// item.umidade
-                    })}
+               
+                
+               // Culik comentado para chamar funcao acima 
+                //onPress={() => navigate('Detail', {
+                //    //aqui tem q pegar da API 
+                //    // a max, min, umidade e imagem
+                //    eventname: item.evento, 
+                //    date: item.date,
+                //    max: 10, //item.max,
+                //    min: 5, //item.min,
+                //    //image: '../images/02.png', //item.image,
+                //    image: jsonDataTemp.WeatherIcon,
+                //    umidade: 2,// item.umidade
+                //    })}
                 //onShowUnderlay={separators.highlight}
                 //onHideUnderlay={separators.unhighlight}
+                onPress={() =>this.chamaDetable(item)}
                 >
             <View style={{backgroundColor: 'white'}}>
                 <ListRow eventname={item.evento} eventperiod={item.date} />
