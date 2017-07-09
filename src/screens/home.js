@@ -24,13 +24,6 @@ class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      // key: '', 
-      // event: '', 
-      // dateini:'', 
-      // datefim:'', 
-      // max: '', 
-      // min: '', 
-      // umidade: ''
       data: [
         //{"evento":"teste","local":"nao sei","dataini":"01/10/2019","datafim":"01/10/2019"},
         //{"evento":"teste2","local":"Jasei","dataini":"01/10/2019","datafim":"01/10/2020"},
@@ -38,7 +31,13 @@ class HomeScreen extends React.Component {
     };
   }
 
+  componentWillMount(){
+    //alert('will mount')
+  }
+
   componentDidMount() {
+
+    //alert('didmount')
     console.log("componentDidMount")
 
     //obter todas chaves
@@ -57,11 +56,9 @@ class HomeScreen extends React.Component {
 
           console.log("stores.length : " + stores.length)  
 
-          //caso precise deletar algo por enquanto
-          //AsyncStorage.removeItem(key)
           objeto = JSON.parse([value])
 
-          //alert(JSON.stringify(objeto))
+          //alert(value)
 
           this.setState(
             {data: [...this.state.data, ...[objeto]]}
@@ -99,22 +96,6 @@ class HomeScreen extends React.Component {
           //   //console.log(res)
           // //alert(key) 
 
-          // //TO DO: tem q fazer o state receber esse array
-          // // e nao como abaixo
-
-          //  this.setState({
-          //   key: res.key,
-          //   event: res.evento,
-          //   dataini: res.dataini,
-          //   datafim: res.datafim,
-          //   max: '50',
-          //   min: '10',
-          //   umidade: '12'
-          // })
-
-
-          // //console.log("THIS.STATE:" + this.state)
-          // })
         });
       });
     });
@@ -130,13 +111,6 @@ class HomeScreen extends React.Component {
 
       const v = await AsyncStorage.getItem(key);
 
-      // if (v) {
-      //   global.gValue = v;
-      // } else {
-      //   global.gValue = 'hello world!';
-      // }
-
-      // objeto = JSON.parse(global.gValue)
       objeto = JSON.parse(v)
 
       return objeto
@@ -173,17 +147,23 @@ class HomeScreen extends React.Component {
             renderItem={({item, separators}) => (
             <TouchableHighlight
                 onPress={() => navigate('Detail', {
+
+                    //aqui tem q pegar da API 
+                    // a max, min, umidade e imagem
+
                     eventname: item.evento, 
-                    dataini: item.dataini,
-                    max: item.max,
-                    min: item.min,
-                    umidade: item.umidade
+                    date: item.date,
+                    max: 10, //item.max,
+                    min: 5, //item.min,
+                    //image: '../images/02.png', //item.image,
+                    image: 1,
+                    umidade: 2,// item.umidade
                     })}
                 //onShowUnderlay={separators.highlight}
                 //onHideUnderlay={separators.unhighlight}
                 >
             <View style={{backgroundColor: 'white'}}>
-                <ListRow eventname={item.evento} eventperiod={item.dataini + " até " + item.dataini} />
+                <ListRow eventname={item.evento} eventperiod={item.date} />
             </View>
             </TouchableHighlight>
             )}

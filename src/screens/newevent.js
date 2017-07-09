@@ -19,8 +19,8 @@ class NewEvent extends React.Component {
     this.state = { 
       evento: '',
       local: '',
-      dataini: '',
-      datafim: '' 
+      date: '',
+      //datafim: '' 
     };
   }
 
@@ -76,8 +76,9 @@ class NewEvent extends React.Component {
     let UID123_object = {
       evento: this.state.evento,
       local: this.state.local,
-      dataini: this.state.dataini,
-      datafim: this.state.datafim,
+      date: this.state.date,
+      //dataini: this.state.dataini,
+      //datafim: this.state.datafim,
     };
 
     try {
@@ -93,7 +94,7 @@ class NewEvent extends React.Component {
         luuid = this.state.evento
 
         AsyncStorage.setItem(luuid, JSON.stringify(UID123_object), () => {
-          alert('Salvo')
+          alert('Evento salvo')
         });
       
       
@@ -125,16 +126,9 @@ class NewEvent extends React.Component {
 
         <TextInput 
           style={styles.textinput} 
-          placeholder="Data Inicial" 
-          onChangeText={(dataini) => this.setState({dataini})}
-          value={this.state.dataini}
-        />
-
-        <TextInput 
-          style={styles.textinput} 
-          placeholder="Data Final" 
-          onChangeText={(datafim) => this.setState({datafim})}
-          value={this.state.datafim}
+          placeholder="Data" 
+          onChangeText={(date) => this.setState({date})}
+          value={this.state.date}
         />
 
         <Button title="Save" 

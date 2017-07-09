@@ -19,9 +19,9 @@ const ListRow = ({eventname, eventperiod, icon}) => {
                     <Text style={period}> {eventperiod} </Text>
                 </View>
 
-                <View style={image}>
+                {/*<View style={image}>
                     <SimpleLineIcons name='emotsmile' size={30}/>
-                </View>
+                </View>*/}
 
             </View>
 
