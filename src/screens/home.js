@@ -12,7 +12,7 @@ import {
 
 import ListRow from '../components/listrow';
 import { StackNavigator } from 'react-navigation';
-import * from '../action/request'
+import {getCityId,getCityInfo} from '../action/request'
   
 
 class HomeScreen extends React.Component {
@@ -125,18 +125,22 @@ class HomeScreen extends React.Component {
 
   
   chamaDetable( item ) {
-  var jsonDataCity = getCityId(item.local);
+      const { navigate } = this.props.navigation;
+      let jsonDataCity;
+      let jsonDataCity;
+  getCityId(item.local).then( response => jsonDataCity:response );
                      
-  var jsonDataTemp = getCityInfo(jsonDataCity);
-
+  getCityInfo(jsonDataCity).then(response => jsonDataTemp:response);
+  console.log(jsonDataCity);
+  console.log(jsonDataTemp);
   navigate('Detail', {
                     //aqui tem q pegar da API 
                     // a max, min, umidade e imagem
                     eventname: item.evento, 
                     date: item.date,
                     max: jsonDataCity.DailyForecasts[0].Temperature.Maximum.Value, //item.max,
-                    min: jsonDataCity.DailyForecasts[0].Temperature.Minimum.Value;, //item.min,                   
-                    image: jsonDataCity.DailyForecasts[0].Day.Icon;,
+                    min: jsonDataCity.DailyForecasts[0].Temperature.Minimum.Value, //item.min,
+                    image: jsonDataCity.DailyForecasts[0].Day.Icon,
                     umidade: 2,// item.umidade
                     });
   	  
