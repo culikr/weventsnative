@@ -12,10 +12,7 @@ import {
 
 import ListRow from '../components/listrow';
 import { StackNavigator } from 'react-navigation';
-<<<<<<< HEAD
-import {getCityId,getCityInfo} from '../action/request'
   
-=======
 import {getCityId, getCityInfo} from '../action/request';
 
 // var getChave = {
