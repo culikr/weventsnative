@@ -88,6 +88,7 @@ class DetailScreen extends React.Component {
 
         
         <Text style={styles.title}>{params.eventname}</Text>
+        <Text style={styles.local}>{params.local}</Text>
 
         <Text style={styles.date}>{params.date}</Text>
 
@@ -97,10 +98,9 @@ class DetailScreen extends React.Component {
           //source={require('../images/02.png')}
           //source={require('../images/'+'02'+'.png')}
         />
-
-        <Text style={styles.infotext}>Temperatura mínima: {params.min}</Text>
         <Text style={styles.infotext}>Temperatura máxima: {params.max}</Text>
-        <Text style={styles.infotext}>Umidade: {params.umidade}</Text>
+        <Text style={styles.infotext}>Temperatura mínima: {params.min}</Text>
+        {/*<Text style={styles.infotext}>Umidade: {params.umidade}</Text>*/}
 
       </View>
     );
@@ -110,18 +110,23 @@ class DetailScreen extends React.Component {
 const styles = StyleSheet.create({
     container: {
     flex: 1,
-    backgroundColor: '#ffa',
+    backgroundColor: 'lightskyblue',
     alignItems: 'center',
     //justifyContent: 'center',
     paddingTop: '20%',
   },
   title: {
     color: 'blue',
-    fontSize: 30,
+    fontSize: 35,
+    padding: 20,
+  },
+  local: {
+    color: 'blue',
+    fontSize: 20,
   },
   date: {
     color: 'blue',
-    fontSize: 20,
+    fontSize: 25,
     padding: 10,
   },
   image: {
@@ -131,6 +136,7 @@ const styles = StyleSheet.create({
     color: 'blue',
     fontSize: 15,
     padding: 10,
+    paddingTop: 20,
   },
 })
 

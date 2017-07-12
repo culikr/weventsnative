@@ -20,6 +20,7 @@ class NewEvent extends React.Component {
       evento: '',
       local: '',
       date: '',
+      key: '',
       //datafim: '' 
     };
   }
@@ -77,6 +78,7 @@ class NewEvent extends React.Component {
       evento: this.state.evento,
       local: this.state.local,
       date: this.state.date,
+      key: this.state.local,
       //dataini: this.state.dataini,
       //datafim: this.state.datafim,
     };
@@ -119,7 +121,7 @@ class NewEvent extends React.Component {
 
         <TextInput 
           style={styles.textinput} 
-          placeholder="Local"
+          placeholder="Cidade"
           onChangeText={(local) => this.setState({local})}
           value={this.state.local}
         />
@@ -145,7 +147,7 @@ class NewEvent extends React.Component {
 const styles = StyleSheet.create({
     container: {
     flex: 1,
-    backgroundColor: '#ffa',
+    backgroundColor: 'lightskyblue',
     alignItems: 'center',
   },
   textinput: {

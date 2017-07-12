@@ -33,7 +33,7 @@ const ListRow = ({eventname, eventperiod, icon}) => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'gray',
+        backgroundColor: 'lightskyblue',
         height: 75,
         width: '100%',
         alignItems: 'flex-start',
@@ -53,21 +53,20 @@ const styles = StyleSheet.create({
     image: {
         paddingRight:30,
         paddingTop:15,
-
     }
     ,
     text: {
-        color: 'white',
+        color: 'navy',
         fontSize: 20,
         padding: 5,
     },
     period: {
-        color: 'white',
+        color: 'navy',
         fontSize: 15,
         padding: 5,
     },
     line: {
-        backgroundColor: 'black',
+        backgroundColor: 'lightgrey',
         height: 1,
         width: '100%',
 
