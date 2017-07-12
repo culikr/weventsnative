@@ -136,7 +136,7 @@ class HomeScreen extends React.Component {
 
   chamaDetable( item ) {
       const { navigate } = this.props.navigation;
-      let jsonDataCity;
+      let jsonDataTemp;
       let jsonDataCity;
   getCityId(item.local).then( response => jsonDataCity:response );
                      
