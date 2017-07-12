@@ -12,47 +12,8 @@ import {
 
 import ListRow from '../components/listrow';
 import { StackNavigator } from 'react-navigation';
-import {getCityId, getCityInfo} from '../action/request';
-
-// var getChave = {
-//   teste: function (cityName) {
-
-//     const apiUrl = 'https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=CGuGYYklWVzjsjtnPsXuMrCsCjTkqnhs&q='+cityName+'';
-
-//     return fetch(apiUrl)
-//       .then((response) => response.json())
-//       // .then((responseJson) => {
-//       //   //return responseJson[0].Key;
-
-//       //   console.log("ERA PRA RETORNAR>>>>" + responseJson[0].Key)
-
-
-//       //   return responseJson[0].Key
-//       // })
-//       .catch((error) => {
-//         console.error(error);
-//       }).done();
-//   }
-// }; 
-
-var random = {
-  gerar: function () {
-    var numero_aleatorio = Math.random();
-
-    numero_aleatorio = Math.floor(numero_aleatorio * 10);
-
-    return numero_aleatorio
-  }
-}
-
-const geraNumeroAleatorio = () => {
-  var numero_aleatorio = Math.random();
-
-  numero_aleatorio = Math.floor(numero_aleatorio * 30);
-  alert(numero_aleatorio);
-}
-
-      
+// import {getCityId, getCityInfo, getCityKey} from '../action/request';
+  
 
 class HomeScreen extends React.Component {
     
@@ -188,22 +149,10 @@ class HomeScreen extends React.Component {
       }).done();
   }
 
-  
-
   getIcone = (local) => {
-    return random.gerar()//getChave.teste(41);
+
+    return this.getCityKey(local)
   }
-
-  getMax = (local) => {
-    return random.gerar() + 30//getChave.teste(41);
-  }
-
-  getMin = (local) => {
-    return random.gerar() + 10//getChave.teste(41);
-  }
-
-
-  
 
 
 
@@ -241,8 +190,8 @@ class HomeScreen extends React.Component {
                     // a max, min, umidade e imagem
                     eventname: item.evento, 
                     date: item.date,
-                    max: this.getMax(), //item.max,
-                    min: this.getMin(), //item.min,
+                    max: 10, //item.max,
+                    min: 5, //item.min,
                     image: this.getIcone(item.local),
                     umidade: 2,// item.umidade
                     })}
