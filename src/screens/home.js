@@ -54,7 +54,6 @@ const geraNumeroAleatorio = () => {
 }
 
       
->>>>>>> c15b3f96b36002e1441f3d925564ba4377af9107
 
 class HomeScreen extends React.Component {
     
@@ -198,15 +197,15 @@ class HomeScreen extends React.Component {
   
 
   getIcone = () => {
-    return random.gerar()//getChave.teste(41);
+    return random.gerar();//getChave.teste(41);
   }
 
   getMax = () => {
-    return random.gerar() + 30//getChave.teste(41);
+    return random.gerar() + 30;//getChave.teste(41);
   }
 
   getMin = () => {
-    return random.gerar() + 10//getChave.teste(41);
+    return random.gerar() + 10;//getChave.teste(41);
   }
 
   getUmidade = () => {
@@ -247,16 +246,17 @@ class HomeScreen extends React.Component {
                
                 
                // Culik comentado para chamar funcao acima 
-                onPress={() => navigate('Detail', {
-                    //aqui tem q pegar da API 
+                onPress={() =>   this.chamaDetable( item ) 
+//navigate('Detail', {
+    //                //aqui tem q pegar da API 
                     // a max, min, umidade e imagem
-                    eventname: item.evento, 
-                    date: item.date,
-                    max: this.getMax(), //item.max,
-                    min: this.getMin(), //item.min,
-                    image: this.getIcone(),
-                    umidade: this.getUmidade(),// item.umidade
-                    })}
+//                    eventname: item.evento, 
+//                    date: item.date,
+//                    max: this.getMax(), //item.max,
+//                    min: this.getMin(), //item.min,
+//                    image: this.getIcone(),
+//                    umidade: this.getUmidade(),// item.umidade
+                    )}
                 //onShowUnderlay={separators.highlight}
                 //onHideUnderlay={separators.unhighlight}
                 //onPress={() =>this.chamaDetable(item)}
