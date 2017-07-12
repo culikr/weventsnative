@@ -12,52 +12,8 @@ import {
 
 import ListRow from '../components/listrow';
 import { StackNavigator } from 'react-navigation';
-<<<<<<< HEAD
-import {getCityId,getCityInfo} from '../action/request'
+// import {getCityId, getCityInfo, getCityKey} from '../action/request';
   
-=======
-import {getCityId, getCityInfo} from '../action/request';
-
-// var getChave = {
-//   teste: function (cityName) {
-
-//     const apiUrl = 'https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=CGuGYYklWVzjsjtnPsXuMrCsCjTkqnhs&q='+cityName+'';
-
-//     return fetch(apiUrl)
-//       .then((response) => response.json())
-//       // .then((responseJson) => {
-//       //   //return responseJson[0].Key;
-
-//       //   console.log("ERA PRA RETORNAR>>>>" + responseJson[0].Key)
-
-
-//       //   return responseJson[0].Key
-//       // })
-//       .catch((error) => {
-//         console.error(error);
-//       }).done();
-//   }
-// }; 
-
-var random = {
-  gerar: function () {
-    var numero_aleatorio = Math.random();
-
-    numero_aleatorio = Math.floor(numero_aleatorio * 10);
-
-    return numero_aleatorio
-  }
-}
-
-const geraNumeroAleatorio = () => {
-  var numero_aleatorio = Math.random();
-
-  numero_aleatorio = Math.floor(numero_aleatorio * 30);
-  alert(numero_aleatorio);
-}
-
-      
->>>>>>> c15b3f96b36002e1441f3d925564ba4377af9107
 
 class HomeScreen extends React.Component {
     
@@ -137,26 +93,21 @@ class HomeScreen extends React.Component {
   }
 
   
-
-  chamaDetable( item ) {
-      const { navigate } = this.props.navigation;
-      let jsonDataCity;
-      let jsonDataCity;
-  getCityId(item.local).then( response => jsonDataCity:response );
+  // chamaDetable = (item) => {
+  //   var jsonDataCity = getCityId(item.local);
                      
-  getCityInfo(jsonDataCity).then(response => jsonDataTemp:response);
-  console.log(jsonDataCity);
-  console.log(jsonDataTemp);
-  navigate('Detail', {
-                    //aqui tem q pegar da API 
-                    // a max, min, umidade e imagem
-                    eventname: item.evento, 
-                    date: item.date,
-                    max: jsonDataCity.DailyForecasts[0].Temperature.Maximum.Value, //item.max,
-                    min: jsonDataCity.DailyForecasts[0].Temperature.Minimum.Value, //item.min,
-                    image: jsonDataCity.DailyForecasts[0].Day.Icon,
-                    umidade: 2,// item.umidade
-                    });
+  //   var jsonDataTemp = getCityInfo(jsonDataCity);
+
+  //   navigate('Detail', {
+  //                   //aqui tem q pegar da API 
+  //                   // a max, min, umidade e imagem
+  //                   eventname: item.evento, 
+  //                   date: item.date,
+  //                   max: jsonDataTemp.DailyForecasts[0].Temperature.Maximum.Value, //item.max,
+  //                   min: jsonDataTemp.DailyForecasts[0].Temperature.Minimum.Value, //item.min,                   
+  //                   image: jsonDataTemp.DailyForecasts[0].Day.Icon,
+  //                   umidade: 2,// item.umidade
+  //                   });
   	  
 	// }
 
@@ -198,26 +149,10 @@ class HomeScreen extends React.Component {
       }).done();
   }
 
-  
+  getIcone = (local) => {
 
-  getIcone = () => {
-    return random.gerar()//getChave.teste(41);
+    return this.getCityKey(local)
   }
-
-  getMax = () => {
-    return random.gerar() + 30//getChave.teste(41);
-  }
-
-  getMin = () => {
-    return random.gerar() + 10//getChave.teste(41);
-  }
-
-  getUmidade = () => {
-    return random.gerar() + 10//getChave.teste(41);
-  }
-
-
-  
 
 
 
@@ -255,10 +190,10 @@ class HomeScreen extends React.Component {
                     // a max, min, umidade e imagem
                     eventname: item.evento, 
                     date: item.date,
-                    max: this.getMax(), //item.max,
-                    min: this.getMin(), //item.min,
-                    image: this.getIcone(),
-                    umidade: this.getUmidade(),// item.umidade
+                    max: 10, //item.max,
+                    min: 5, //item.min,
+                    image: this.getIcone(item.local),
+                    umidade: 2,// item.umidade
                     })}
                 //onShowUnderlay={separators.highlight}
                 //onHideUnderlay={separators.unhighlight}
