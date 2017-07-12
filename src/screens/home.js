@@ -190,15 +190,19 @@ class HomeScreen extends React.Component {
 
   
 
-  getIcone = (local) => {
+  getIcone = () => {
     return random.gerar()//getChave.teste(41);
   }
 
-  getMax = (local) => {
+  getMax = () => {
     return random.gerar() + 30//getChave.teste(41);
   }
 
-  getMin = (local) => {
+  getMin = () => {
+    return random.gerar() + 10//getChave.teste(41);
+  }
+
+  getUmidade = () => {
     return random.gerar() + 10//getChave.teste(41);
   }
 
@@ -243,8 +247,8 @@ class HomeScreen extends React.Component {
                     date: item.date,
                     max: this.getMax(), //item.max,
                     min: this.getMin(), //item.min,
-                    image: this.getIcone(item.local),
-                    umidade: 2,// item.umidade
+                    image: this.getIcone(),
+                    umidade: this.getUmidade(),// item.umidade
                     })}
                 //onShowUnderlay={separators.highlight}
                 //onHideUnderlay={separators.unhighlight}
