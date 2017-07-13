@@ -94,7 +94,7 @@ class HomeScreen extends React.Component {
 
           objeto = JSON.parse([value])
 
-          //alert(value)
+          //alert(objeto.local)
 
           this.setState(
             {data: [...this.state.data, ...[objeto]]}
@@ -305,7 +305,9 @@ class HomeScreen extends React.Component {
                 //onHideUnderlay={separators.unhighlight}
                 >
             <View style={{backgroundColor: 'white'}}>
-                <ListRow eventname={item.evento} eventperiod={item.date} />
+                <ListRow 
+                  eventname={item.evento} 
+                  eventperiod={item.date} />
             </View>
             </TouchableHighlight>
             )}

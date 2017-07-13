@@ -6,7 +6,7 @@ import {SimpleLineIcons} from '@expo/vector-icons'
 
 const ListRow = ({eventname, eventperiod, icon}) => {
 
-    const {container, row, column, text, button, image, line, period} = styles
+    const {container, row, column, text, button, image, more, line, period} = styles
 
     return (
         <View style={container}>
@@ -18,6 +18,8 @@ const ListRow = ({eventname, eventperiod, icon}) => {
 
                     <Text style={period}> {eventperiod} </Text>
                 </View>
+
+                <Text style={more}> ... </Text>
 
                 {/*<View style={image}>
                     <SimpleLineIcons name='emotsmile' size={30}/>
@@ -52,9 +54,13 @@ const styles = StyleSheet.create({
     },
     image: {
         paddingRight:30,
-        paddingTop:15,
-    }
-    ,
+        top:10
+    },
+    more: {
+        color: 'navy',
+        fontSize: 40,
+        padding: 0,
+    },
     text: {
         color: 'navy',
         fontSize: 20,

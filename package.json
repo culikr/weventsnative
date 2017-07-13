@@ -10,6 +10,7 @@
     "jest-expo": "^18.0.0",
     "react": "16.0.0-alpha.6",
     "react-native": "https://github.com/expo/react-native/archive/sdk-17.0.0.tar.gz",
+    "react-native-datepicker": "^1.6.0",
     "react-native-scripts": "^0.0.40",
     "react-native-unique-id": "^1.0.4",
     "react-native-uuid": "^1.4.9",

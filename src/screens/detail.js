@@ -73,7 +73,7 @@ class DetailScreen extends React.Component {
                       {
                         AsyncStorage.removeItem(navigation.state.params.eventname)
 
-                        alert(navigation.state.params.eventname + ' apagado.')
+                        alert(navigation.state.params.eventname + ' deleted.')
                       }
                     }
                  />
@@ -98,8 +98,8 @@ class DetailScreen extends React.Component {
           //source={require('../images/02.png')}
           //source={require('../images/'+'02'+'.png')}
         />
-        <Text style={styles.infotext}>Temperatura máxima: {params.max}</Text>
-        <Text style={styles.infotext}>Temperatura mínima: {params.min}</Text>
+        <Text style={styles.infotext}>Max. Temp: {params.max} °C</Text>
+        <Text style={styles.infotext}>Min. Temp: {params.min} °C</Text>
         {/*<Text style={styles.infotext}>Umidade: {params.umidade}</Text>*/}
 
       </View>
