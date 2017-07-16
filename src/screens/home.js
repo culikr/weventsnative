@@ -87,7 +87,7 @@ class HomeScreen extends React.Component {
 
         stores.map((result, i, store) => {
           // get at each store's key/value so you can work with it
-          let key = store[i][0];  //SE TROCA AQUI MANUAL ELE CARREGA AS DIFERENTES KEYS
+          let key = store[i][0];
           let value = store[i][1];
 
           //console.log("stores.length : " + stores.length)  
