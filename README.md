@@ -28,3 +28,12 @@ Este aplicativo apenas um protótipo, devido as dificuldades encontradas abaixo:
 
 - Os testes não executavam mesmo em aula, por não termos usado o create react native app. Porém criando o app assim, o navigation não estava aparecendo. Na última aula, foi feito um questionamento a respeito, porém não obtivemos uma solução. Tentamos mais algumas vezes criar o app com o "CRNA", porém sempre com o mesmo prolema do navigation e, para não perder mais tempo ainda no trabalho, seguimos usando o nosso onde o navigation funcionava.
 
+
+<img src="src/prints/2017-07-15_13_50_03.gif" height="330px">
+<img src="src/prints/1.png" height="330px">
+<img src="src/prints/2.png" height="330px">
+<img src="src/prints/3.png" height="330px">
+<img src="src/prints/4.png" height="330px">
+<img src="src/prints/5.png" height="330px">
+<img src="src/prints/6.png" height="330px">
+
